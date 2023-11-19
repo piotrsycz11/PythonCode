@@ -1,3 +1,4 @@
+#AUTHOR: Piotr Sycz
 import random
 import string
 
