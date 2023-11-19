@@ -2,7 +2,7 @@
 import random
 import string
 
-passwords = {}
+# passwords = {}
 
 class User:
     def __init__(self, name, surname):
@@ -50,22 +50,35 @@ class User:
 
 def initials():
     return input("Name: "), input("Surname: ")
-
+def save_to_csv():
+    with open("passwords.csv", "a") as file:
+        for key, value in passwords.items():
+            file.write(f"{key},{value}\n")
 while True:
+    with open("passwords.csv", "r") as file:
+        passwords = {}
+        for _ in file:
+            key, value = _.strip().split(",")
+            passwords[key] = value
+        print(passwords)
     action = input("Choose an action: [generate/modify/see/exit] ").lower()
     if action == 'generate':
         name, surname = initials()
         user = User(name, surname)
         if not user.check_existing():
             password = user.password_generator()
+            save_to_csv()
             print(f"Username: {user.username} Password: {password}")
     elif action == 'modify':
         name, surname = initials()
         user = User(name, surname)
         user.modify_password()
+        save_to_csv()
     elif action == 'see':
         admin = input("Type admin password: ")
         if admin == "admin":
-            print(passwords)
+            with open("passwords.csv", "r") as file:
+                print(file.read())
     elif action == 'exit':
+        save_to_csv()
         break
