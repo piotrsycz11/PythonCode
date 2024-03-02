@@ -12,7 +12,7 @@ File Translator to aplikacja desktopowa stworzona przy użyciu biblioteki Tkinte
 
 ## Wymagania
 
-- Python 3.x
+- Python 3.12.0
 - Moduł `tkinter` dla Pythona
 - Moduł `requests`
 - Moduł `json`
