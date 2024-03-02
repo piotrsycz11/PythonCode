@@ -10,6 +10,7 @@ API_KEY = 'Twoj_klucz_API'
 full_text = ""
 sciezka_pliku = None
 
+# Funkcja wyboru pliku docx
 def wybierz_plik_docx():
     global sciezka_pliku
     global full_text
@@ -21,6 +22,7 @@ def wybierz_plik_docx():
             full_text.append(para.text)
         full_text = '\n'.join(full_text)
 
+# Funkcja tłumaczenia tekstu
 def tlumacz_tekst():
     # Zmienne dla języków mogą być zmienione w zależności od wyboru użytkownika
     source_lang = var.get().split('-')[0]
@@ -30,7 +32,7 @@ def tlumacz_tekst():
     if not full_text:  # Sprawdzenie czy tekst nie jest pusty
         messagebox.showerror("Błąd", "Tekst do tłumaczenia jest pusty.")
         return
-
+    # Kod proponowany przez API
     headers = {"Authorization": f"Bearer {API_KEY}"}
     url = "https://api.edenai.run/v2/translation/automatic_translation"
     payload = {
@@ -47,6 +49,7 @@ def tlumacz_tekst():
     else:
         messagebox.showerror("Błąd", f"Nie udało się przetłumaczyć tekstu: {response.text}")
 
+# Funkcja zapisu przetłumaczonego tekstu do pliku
 def zapisz_do_pliku_docx(translated_text):
     new_doc = docx.Document()
     new_doc.add_paragraph(translated_text['google']['text'])
@@ -56,7 +59,7 @@ def zapisz_do_pliku_docx(translated_text):
         new_doc.save(file_path)
         messagebox.showinfo("Sukces", "Przetłumaczony dokument został zapisany.")
 
-# Inicjalizacja Bootstrap
+# Inicjalizacja 
 root = tk.Tk()
 root.title("File Translator")
 root.geometry("300x150")
