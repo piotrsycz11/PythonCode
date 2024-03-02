@@ -24,7 +24,7 @@ def wybierz_plik_docx():
 
 # Funkcja tłumaczenia tekstu
 def tlumacz_tekst():
-    # Zmienne dla języków mogą być zmienione w zależności od wyboru użytkownika
+    # Zmienne do tłumaczenia
     source_lang = var.get().split('-')[0]
     target_lang = var.get().split('-')[1]
     global full_text
