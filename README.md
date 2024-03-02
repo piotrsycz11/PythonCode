@@ -47,6 +47,4 @@ python file_translator.py
 4. Kliknij przycisk "Tłumacz", aby rozpocząć proces tłumaczenia.
 5. Zapisz przetłumaczony dokument, gdy pojawi się taka możliwość.
 
-## Licencja
 
-Projekt jest udostępniony na licencji MIT.
