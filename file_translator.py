@@ -5,7 +5,7 @@ import json
 import docx
 
 # API key do Eden AI
-API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiOTg5NWFiYzEtMmFmMy00ZmZkLTgwZmItNGFiMDcxZGNhYjYyIiwidHlwZSI6ImFwaV90b2tlbiJ9.rM4Hr0Ubpa9dMzpFGSAOl1mXNF6ZhDgNLUiSK8noGHU'
+API_KEY = 'Twoj_klucz_API'
 
 full_text = ""
 sciezka_pliku = None
